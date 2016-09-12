@@ -1,11 +1,5 @@
 # Knocker
 
-## Next
-
-- Service auth for EventStore
-- Some kind for authentication and/or authorisation
-- Prod
-
 # Help
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
