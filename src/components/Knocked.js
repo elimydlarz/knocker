@@ -60,7 +60,7 @@ export default class Knocked extends Component {
             <textarea id="notes" value={this.state.knockee.notes}
               onChange={this.updateKnockee} />
           </label>
-          <input type="submit"
+          <input type="submit" disabled={!this.state.knockee.address || !this.state.knockee.notes}
             onClick={this.transmit} />
         </form>
       </div>

@@ -4,8 +4,36 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Knocked from './Knocked';
 
-describe('when the knocked form is submitted', () => {
-  describe('and life is beautiful', () => {
+describe('Knocked', () => {
+  describe('when address is empty', () => {
+    it('disables submit', () => {
+      const component = renderer.create(<Knocked />)
+      let tree = component.toJSON();
+
+      setField(tree, 'address').props.onChange({ target: { id: 'address', value: '' } });
+      setField(tree, 'notes').props.onChange({ target: { id: 'notes', value: 'COOL NOTES' } });
+      submit(tree);
+
+      tree = component.toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+  });
+
+  describe('when notes is empty', () => {
+    it('disables submit', () => {
+      const component = renderer.create(<Knocked />)
+      let tree = component.toJSON();
+
+      setField(tree, 'address').props.onChange({ target: { id: 'address', value: 'COOL ADDRESS' } });
+      setField(tree, 'notes').props.onChange({ target: { id: 'notes', value: '' } });
+      submit(tree);
+
+      tree = component.toJSON();
+      expect(tree).toMatchSnapshot();
+    });
+  });
+
+  describe('when the form is submitted successfully', () => {
     it('displays a confirmation message', () => {
       const component = renderer.create(<Knocked />)
       let tree = component.toJSON();
@@ -19,7 +47,7 @@ describe('when the knocked form is submitted', () => {
     });
   });
 
-  describe('and everything falls apart', () => {
+  describe('when form is submitted UNSUCCESSFULLY', () => {
     it('displays an error message', () => {
       const component = renderer.create(<Knocked />)
       let tree = component.toJSON();

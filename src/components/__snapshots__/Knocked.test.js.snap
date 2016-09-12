@@ -1,4 +1,37 @@
-exports[`when the knocked form is submitted and everything falls apart displays an error message 1`] = `
+exports[`Knocked when address is empty disables submit 1`] = `
+<div
+  className="Knocked">
+  <div
+    className="FlashMessage">
+    Thanks heaps for knocking at 
+  </div>
+  <form>
+    <label
+      data-name="address-label">
+      Where did you knock?
+      <input
+        id="address"
+        onChange={[Function bound updateKnockee]}
+        type="text"
+        value="" />
+    </label>
+    <label
+      data-name="notes-label">
+      What happened?
+      <textarea
+        id="notes"
+        onChange={[Function bound updateKnockee]}
+        value="" />
+    </label>
+    <input
+      disabled={true}
+      onClick={[Function bound transmit]}
+      type="submit" />
+  </form>
+</div>
+`;
+
+exports[`Knocked when form is submitted UNSUCCESSFULLY displays an error message 1`] = `
 <div
   className="Knocked">
   <div
@@ -24,13 +57,14 @@ exports[`when the knocked form is submitted and everything falls apart displays 
         value="FAIL" />
     </label>
     <input
+      disabled={false}
       onClick={[Function bound transmit]}
       type="submit" />
   </form>
 </div>
 `;
 
-exports[`when the knocked form is submitted and life is beautiful displays a confirmation message 1`] = `
+exports[`Knocked when notes is empty disables submit 1`] = `
 <div
   className="Knocked">
   <div
@@ -56,6 +90,40 @@ exports[`when the knocked form is submitted and life is beautiful displays a con
         value="" />
     </label>
     <input
+      disabled={true}
+      onClick={[Function bound transmit]}
+      type="submit" />
+  </form>
+</div>
+`;
+
+exports[`Knocked when the form is submitted successfully displays a confirmation message 1`] = `
+<div
+  className="Knocked">
+  <div
+    className="FlashMessage">
+    Thanks heaps for knocking at COOL ADDRESS
+  </div>
+  <form>
+    <label
+      data-name="address-label">
+      Where did you knock?
+      <input
+        id="address"
+        onChange={[Function bound updateKnockee]}
+        type="text"
+        value="" />
+    </label>
+    <label
+      data-name="notes-label">
+      What happened?
+      <textarea
+        id="notes"
+        onChange={[Function bound updateKnockee]}
+        value="" />
+    </label>
+    <input
+      disabled={true}
       onClick={[Function bound transmit]}
       type="submit" />
   </form>

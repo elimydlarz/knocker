@@ -29,6 +29,7 @@ exports[`test does not explode 1`] = `
           value="" />
       </label>
       <input
+        disabled={true}
         onClick={[Function bound transmit]}
         type="submit" />
     </form>
