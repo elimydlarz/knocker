@@ -4,11 +4,11 @@
 
 ### Front
 
-Business in the front. Deploy using Heroku Git.
+Business in the front. Deployed to Heroku via GitHub connection.
 
 ### Back
 
-Party in the back. ECS probably?
+Party in the back. Deployed to ECS using their goofy wizard thing, then configured via Postman.
 
 ## EventStore
 
