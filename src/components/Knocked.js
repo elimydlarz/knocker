@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FlashMessage from './FlashMessage';
-import EventStore from '../services/EventStore.js';
+import transmit from '../services/transmit.js';
 import '../css/Knocked.css';
 
 const EMPTY_KNOCKEE = {
@@ -11,7 +11,6 @@ const EMPTY_KNOCKEE = {
 export default class Knocked extends Component {
   constructor() {
     super();
-    this.eventStore = new EventStore();
     this.state = {
       message: 'Welcome to Knocker!',
       knockee: EMPTY_KNOCKEE,
@@ -33,7 +32,7 @@ export default class Knocked extends Component {
   transmit(event) {
     event.preventDefault();
 
-    const responseHandler = response => {
+    transmit('knocked', this.state.knockee, response => {
       if (response.status === 201) {
         this.setState({
           message: `Thanks heaps for knocking at ${this.state.knockee.address}`,
@@ -42,9 +41,7 @@ export default class Knocked extends Component {
       } else {
         this.setState({ message: 'Whoops!' });
       }
-    }
-
-    this.eventStore.transmit('knocked', this.state.knockee, responseHandler)
+    });
   }
 
   render() {

@@ -1,4 +1,4 @@
-jest.mock('../services/EventStore');
+jest.mock('../services/transmit');
 
 import React from 'react';
 import renderer from 'react-test-renderer';

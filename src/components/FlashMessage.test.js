@@ -1,5 +1,3 @@
-jest.mock('../services/EventStore');
-
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Knocked from './FlashMessage';
