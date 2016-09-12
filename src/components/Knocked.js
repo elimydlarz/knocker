@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FlashMessage from './FlashMessage';
 import EventStore from '../services/EventStore.js';
+import '../css/Knocked.css';
 
 const EMPTY_KNOCKEE = {
   address: '',
