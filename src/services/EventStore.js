@@ -3,7 +3,11 @@ import UUID from 'uuid';
 
 export default class EventStore {
   constructor() {
-    this.client = new Client({ connection: { withCredentials: false } });
+    this.client = new Client({
+      user: 'admin',
+      password: 'changeit',
+      connection: { withCredentials: false }
+    });
   }
 
   transmit(type, data, successFn, failureFn) {
