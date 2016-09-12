@@ -12,11 +12,20 @@ exports[`test does not explode 1`] = `
     </div>
     <form>
       <label
+        data-name="knocker-label">
+        Who knocked?
+        <input
+          id="knocker"
+          onChange={[Function bound updateKnocked]}
+          type="text"
+          value="" />
+      </label>
+      <label
         data-name="address-label">
         Where did you knock?
         <input
           id="address"
-          onChange={[Function bound updateKnockee]}
+          onChange={[Function bound updateKnocked]}
           type="text"
           value="" />
       </label>
@@ -25,7 +34,7 @@ exports[`test does not explode 1`] = `
         What happened?
         <textarea
           id="notes"
-          onChange={[Function bound updateKnockee]}
+          onChange={[Function bound updateKnocked]}
           value="" />
       </label>
       <input

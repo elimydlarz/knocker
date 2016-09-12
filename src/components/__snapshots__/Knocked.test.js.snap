@@ -1,17 +1,26 @@
-exports[`Knocked when address is empty disables submit 1`] = `
+exports[`Knocked when any field is empty 1`] = `
 <div
   className="Knocked">
   <div
     className="FlashMessage">
-    Thanks heaps for knocking at 
+    Welcome to Knocker!
   </div>
   <form>
+    <label
+      data-name="knocker-label">
+      Who knocked?
+      <input
+        id="knocker"
+        onChange={[Function bound updateKnocked]}
+        type="text"
+        value="" />
+    </label>
     <label
       data-name="address-label">
       Where did you knock?
       <input
         id="address"
-        onChange={[Function bound updateKnockee]}
+        onChange={[Function bound updateKnocked]}
         type="text"
         value="" />
     </label>
@@ -20,7 +29,7 @@ exports[`Knocked when address is empty disables submit 1`] = `
       What happened?
       <textarea
         id="notes"
-        onChange={[Function bound updateKnockee]}
+        onChange={[Function bound updateKnocked]}
         value="" />
     </label>
     <input
@@ -31,7 +40,7 @@ exports[`Knocked when address is empty disables submit 1`] = `
 </div>
 `;
 
-exports[`Knocked when form is submitted UNSUCCESSFULLY displays an error message 1`] = `
+exports[`Knocked when form is submitted UNSUCCESSFULLY 1`] = `
 <div
   className="Knocked">
   <div
@@ -40,20 +49,29 @@ exports[`Knocked when form is submitted UNSUCCESSFULLY displays an error message
   </div>
   <form>
     <label
+      data-name="knocker-label">
+      Who knocked?
+      <input
+        id="knocker"
+        onChange={[Function bound updateKnocked]}
+        type="text"
+        value="FAIL" />
+    </label>
+    <label
       data-name="address-label">
       Where did you knock?
       <input
         id="address"
-        onChange={[Function bound updateKnockee]}
+        onChange={[Function bound updateKnocked]}
         type="text"
-        value="COOL ADDRESS" />
+        value="FAIL" />
     </label>
     <label
       data-name="notes-label">
       What happened?
       <textarea
         id="notes"
-        onChange={[Function bound updateKnockee]}
+        onChange={[Function bound updateKnocked]}
         value="FAIL" />
     </label>
     <input
@@ -64,20 +82,29 @@ exports[`Knocked when form is submitted UNSUCCESSFULLY displays an error message
 </div>
 `;
 
-exports[`Knocked when notes is empty disables submit 1`] = `
+exports[`Knocked when the form is submitted successfully 1`] = `
 <div
   className="Knocked">
   <div
     className="FlashMessage">
-    Thanks heaps for knocking at COOL ADDRESS
+    Thanks heaps for knocking at 23 Something Street, Somewhere
   </div>
   <form>
+    <label
+      data-name="knocker-label">
+      Who knocked?
+      <input
+        id="knocker"
+        onChange={[Function bound updateKnocked]}
+        type="text"
+        value="Rick Sanchez" />
+    </label>
     <label
       data-name="address-label">
       Where did you knock?
       <input
         id="address"
-        onChange={[Function bound updateKnockee]}
+        onChange={[Function bound updateKnocked]}
         type="text"
         value="" />
     </label>
@@ -86,40 +113,7 @@ exports[`Knocked when notes is empty disables submit 1`] = `
       What happened?
       <textarea
         id="notes"
-        onChange={[Function bound updateKnockee]}
-        value="" />
-    </label>
-    <input
-      disabled={true}
-      onClick={[Function bound transmit]}
-      type="submit" />
-  </form>
-</div>
-`;
-
-exports[`Knocked when the form is submitted successfully displays a confirmation message 1`] = `
-<div
-  className="Knocked">
-  <div
-    className="FlashMessage">
-    Thanks heaps for knocking at COOL ADDRESS
-  </div>
-  <form>
-    <label
-      data-name="address-label">
-      Where did you knock?
-      <input
-        id="address"
-        onChange={[Function bound updateKnockee]}
-        type="text"
-        value="" />
-    </label>
-    <label
-      data-name="notes-label">
-      What happened?
-      <textarea
-        id="notes"
-        onChange={[Function bound updateKnockee]}
+        onChange={[Function bound updateKnocked]}
         value="" />
     </label>
     <input

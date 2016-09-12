@@ -5,60 +5,36 @@ import renderer from 'react-test-renderer';
 import Knocked from './Knocked';
 
 describe('Knocked', () => {
-  describe('when address is empty', () => {
-    it('disables submit', () => {
-      const component = renderer.create(<Knocked />)
-      let tree = component.toJSON();
-
-      setField(tree, 'address').props.onChange({ target: { id: 'address', value: '' } });
-      setField(tree, 'notes').props.onChange({ target: { id: 'notes', value: 'COOL NOTES' } });
-      submit(tree);
-
-      tree = component.toJSON();
-      expect(tree).toMatchSnapshot();
-    });
+  it('when any field is empty', () => {
+    const component = renderer.create(<Knocked />)
+    const tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
-  describe('when notes is empty', () => {
-    it('disables submit', () => {
-      const component = renderer.create(<Knocked />)
-      let tree = component.toJSON();
+  it('when the form is submitted successfully', () => {
+    const component = renderer.create(<Knocked />)
+    let tree = component.toJSON();
 
-      setField(tree, 'address').props.onChange({ target: { id: 'address', value: 'COOL ADDRESS' } });
-      setField(tree, 'notes').props.onChange({ target: { id: 'notes', value: '' } });
-      submit(tree);
+    setField(tree, 'address').props.onChange({ target: { id: 'address', value: '23 Something Street, Somewhere' } });
+    setField(tree, 'notes').props.onChange({ target: { id: 'notes', value: 'Fun visit! Sold the guy some bananas.' } });
+    setField(tree, 'knocker').props.onChange({ target: { id: 'knocker', value: 'Rick Sanchez' } });
+    submit(tree);
 
-      tree = component.toJSON();
-      expect(tree).toMatchSnapshot();
-    });
+    tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
   });
 
-  describe('when the form is submitted successfully', () => {
-    it('displays a confirmation message', () => {
-      const component = renderer.create(<Knocked />)
-      let tree = component.toJSON();
+  it('when form is submitted UNSUCCESSFULLY', () => {
+    const component = renderer.create(<Knocked />)
+    let tree = component.toJSON();
 
-      setField(tree, 'address').props.onChange({ target: { id: 'address', value: 'COOL ADDRESS' } });
-      setField(tree, 'notes').props.onChange({ target: { id: 'notes', value: 'COOL NOTES' } });
-      submit(tree);
+    setField(tree, 'address').props.onChange({ target: { id: 'address', value: 'FAIL' } });
+    setField(tree, 'notes').props.onChange({ target: { id: 'notes', value: 'FAIL' } });
+    setField(tree, 'knocker').props.onChange({ target: { id: 'knocker', value: 'FAIL' } });
+    submit(tree);
 
-      tree = component.toJSON();
-      expect(tree).toMatchSnapshot();
-    });
-  });
-
-  describe('when form is submitted UNSUCCESSFULLY', () => {
-    it('displays an error message', () => {
-      const component = renderer.create(<Knocked />)
-      let tree = component.toJSON();
-
-      setField(tree, 'address').props.onChange({ target: { id: 'address', value: 'COOL ADDRESS' } });
-      setField(tree, 'notes').props.onChange({ target: { id: 'notes', value: 'FAIL' } });
-      submit(tree);
-
-      tree = component.toJSON();
-      expect(tree).toMatchSnapshot();
-    });
+    tree = component.toJSON();
+    expect(tree).toMatchSnapshot();
   });
 });
 
