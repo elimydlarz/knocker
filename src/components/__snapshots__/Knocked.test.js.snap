@@ -1,0 +1,63 @@
+exports[`when the knocked form is submitted and everything falls apart displays an error message 1`] = `
+<div
+  className="Knocked">
+  <div
+    className="FlashMessage">
+    Whoops!
+  </div>
+  <form>
+    <label
+      data-name="address-label">
+      Where did you knock?
+      <input
+        id="address"
+        onChange={[Function bound updateKnockee]}
+        type="text"
+        value="COOL ADDRESS" />
+    </label>
+    <label
+      data-name="notes-label">
+      What happened?
+      <textarea
+        id="notes"
+        onChange={[Function bound updateKnockee]}
+        value="FAIL" />
+    </label>
+    <input
+      onClick={[Function bound transmit]}
+      type="submit" />
+  </form>
+</div>
+`;
+
+exports[`when the knocked form is submitted and life is beautiful displays a confirmation message 1`] = `
+<div
+  className="Knocked">
+  <div
+    className="FlashMessage">
+    Thanks heaps for knocking at COOL ADDRESS
+  </div>
+  <form>
+    <label
+      data-name="address-label">
+      Where did you knock?
+      <input
+        id="address"
+        onChange={[Function bound updateKnockee]}
+        type="text"
+        value="" />
+    </label>
+    <label
+      data-name="notes-label">
+      What happened?
+      <textarea
+        id="notes"
+        onChange={[Function bound updateKnockee]}
+        value="" />
+    </label>
+    <input
+      onClick={[Function bound transmit]}
+      type="submit" />
+  </form>
+</div>
+`;

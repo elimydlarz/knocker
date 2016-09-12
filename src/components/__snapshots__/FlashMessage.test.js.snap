@@ -1,0 +1,6 @@
+exports[`FlashMessage displays message 1`] = `
+<div
+  className="FlashMessage">
+  Hello World!
+</div>
+`;

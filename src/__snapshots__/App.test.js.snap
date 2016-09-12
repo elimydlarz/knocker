@@ -1,0 +1,37 @@
+exports[`test does not explode 1`] = `
+<div
+  className="App">
+  <h1>
+    Knocker
+  </h1>
+  <div
+    className="Knocked">
+    <div
+      className="FlashMessage">
+      Welcome to Knocker!
+    </div>
+    <form>
+      <label
+        data-name="address-label">
+        Where did you knock?
+        <input
+          id="address"
+          onChange={[Function bound updateKnockee]}
+          type="text"
+          value="" />
+      </label>
+      <label
+        data-name="notes-label">
+        What happened?
+        <textarea
+          id="notes"
+          onChange={[Function bound updateKnockee]}
+          value="" />
+      </label>
+      <input
+        onClick={[Function bound transmit]}
+        type="submit" />
+    </form>
+  </div>
+</div>
+`;
