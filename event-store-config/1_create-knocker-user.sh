@@ -1,0 +1,1 @@
+curl -X POST -H "Content-Type: application/json" -H "Authorization: Basic YWRtaW46Y2hhbmdlaXQ=" -H "Cache-Control: no-cache" -H "Postman-Token: 6dd9c0c7-5dba-56f5-750f-7e5e2098b414" -d '{"loginName":"knocker","fullName":"Knocker","password":"changeit","groups":[]}' "http://0.0.0.0:2113/users/"
