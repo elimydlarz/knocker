@@ -33,17 +33,18 @@ export default class Knocked extends Component {
   transmit(event) {
     event.preventDefault();
 
-    this.eventStore.transmit(
-      'knocked',
-      this.state.knockee,
-      (data, response) => {
+    const responseHandler = response => {
+      if (response.status === 201) {
         this.setState({
           message: `Thanks heaps for knocking at ${this.state.knockee.address}`,
           knockee: EMPTY_KNOCKEE,
         });
-      },
-      error => this.setState({ message: 'Whoops!'})
-    )
+      } else {
+        this.setState({ message: 'Whoops!' });
+      }
+    }
+
+    this.eventStore.transmit('knocked', this.state.knockee, responseHandler)
   }
 
   render() {
