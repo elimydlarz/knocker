@@ -1,5 +1,15 @@
 # Knocker
 
+## Deployment
+
+### Front
+
+Business in the front. Deploy using Heroku Git.
+
+### Back
+
+Party in the back. ECS probably?
+
 ## EventStore
 
 Knocker loves EventStore like a fat kid loves cake. Get the official Docker image for EventStore running -
