@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import FlashMessage from './FlashMessage';
 import transmit from '../services/transmit.js';
+import RadioButtons from './RadioButtons';
 import '../css/Knocked.css';
 
 export default class Knocked extends Component {
@@ -10,6 +11,7 @@ export default class Knocked extends Component {
       message: 'Welcome to Knocker!',
       knocked: {
         knocker: '',
+        knockee: '',
         address: '',
         notes: '',
       }
@@ -37,6 +39,7 @@ export default class Knocked extends Component {
           message: `Thanks heaps for knocking at ${this.state.knocked.address}`,
           knocked: {
             ...this.state.knocked,
+            knockee: '',
             address: '',
             notes: '',
           },
@@ -50,7 +53,7 @@ export default class Knocked extends Component {
   render() {
     return (
       <div className="Knocked">
-        <FlashMessage 
+        <FlashMessage
           message={this.state.message} />
         <form>
           <label data-name="knocker-label">
@@ -65,6 +68,30 @@ export default class Knocked extends Component {
               value={this.state.knocked.address}
               onChange={this.updateKnocked} />
           </label>
+          <label data-name="knockee-label">
+            Who did you speak to?
+            <input type="text" id="knockee"
+              value={this.state.knocked.knockee}
+              onChange={this.updateKnocked} />
+          </label>
+          <RadioButtons label='What happened?' options={[
+            'Non-meaningful interaction',
+            'Meaningful interaction',
+            'Busy',
+          	'Language Barrier',
+          	'No Answer',
+          	'Bad Info',
+          	'Inaccessible',
+          	'Refused',
+          ]} />
+          <RadioButtons label='What was their level of support?' options={[
+            'Unknown',
+          	'Strong support',
+          	'Weak support',
+          	'Undecided',
+          	'Weak oppose',
+          	'Strong oppose',
+          ]} />
           <label data-name="notes-label">
             What happened?
             <textarea id="notes"

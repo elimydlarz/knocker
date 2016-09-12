@@ -12,6 +12,6 @@ export default function transmit(type, body, responseHandler) {
     body: JSON.stringify(body),
   };
 
-  fetch('http://54.206.125.76:2113/streams/knocker', options)
+  fetch('http://127.0.0.1:2113/streams/knocker', options)
     .then(responseHandler);
 }
