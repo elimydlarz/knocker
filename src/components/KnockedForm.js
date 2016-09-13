@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import FlashMessage from './FlashMessage';
-import RadioButtons from './RadioButtons';
-import Checkboxes from './Checkboxes';
 import TextInput from './TextInput';
 import Submit from './Submit';
+import DropDown from './DropDown';
 import '../css/KnockedForm.css';
 
 export default class KnockedForm extends Component {
@@ -51,19 +50,23 @@ export default class KnockedForm extends Component {
 
   handleSubmitSuccess() {
     this.setState({
-      message: `Thanks heaps for knocking at ${this.state.knocked.knockeeAddress}`,
+      message: `Thanks heaps for knocking at ${this.state.knocked.knockeeAddress}.
+                You're a great knocker, ${this.state.knocked.knocker}!`,
       knocked: { knocker: this.state.knocked.knocker },
+      authorised: true,
     });
   }
 
   handleSubmitFailure(response) {
-    console.log(response);
     const message = response.status === 401
       ? `We're having trouble authenticating you.
         Make sure you've identified yourself correctly and
         supplied the right password.`
       : 'Whoops! Something unexpected has gone wrong.'
-    this.setState({ message });
+    this.setState({
+      message ,
+      authorised: false,
+    });
   }
 
   render() {
@@ -72,90 +75,84 @@ export default class KnockedForm extends Component {
         <FlashMessage
           message={this.state.message} />
         <form>
-          <TextInput
-            name='knocker'
-            label='Who knocked?'
-            value={this.state.knocked.knocker || ''}
-            changeHandler={this.updateField} />
-          <label>
-            {"What's the password?"}
-            <input type='password' name='password'
-              value={this.state.password}
-              onChange={this.setPassword} />
-          </label>
+          { this.state.authorised ? undefined :
+            <div>
+              <TextInput
+                name='knocker'
+                label='Who knocked?'
+                value={this.state.knocked.knocker || ''}
+                changeHandler={this.updateField}
+              />
+              <input type='password' name='password'
+                placeholder="What's the password?"
+                value={this.state.password}
+                onChange={this.setPassword}
+              />
+            </div>
+          }
           <TextInput
             name='knockeeAddress'
             label='Where did you knock?'
             value={this.state.knocked.knockeeAddress || ''}
-            changeHandler={this.updateField} />
+            changeHandler={this.updateField}
+          />
           <TextInput
             name='knockeePerson'
-            label='Who did you speak to?'
+            label='Who did you speak to? (optional)'
             value={this.state.knocked.knockeePerson || ''}
-            changeHandler={this.updateField} />
-          <RadioButtons
+            changeHandler={this.updateField}
+          />
+          <DropDown
             name='interaction'
             value={this.state.knocked.interaction}
             changeHandler={this.updateField}
-            label='What happened?'
+            placeholder='What happened?'
             options={[
-              'Non-meaningful interaction',
-              'Meaningful interaction',
-              'Busy',
-            	'Language Barrier',
-            	'No Answer',
-            	'Bad Info',
-            	'Inaccessible',
-            	'Refused',
+              'We had a non-meaningful interaction',
+              'We had a meaningful interaction',
+              'They were busy',
+            	'There was a language barrier',
+            	'There was no answer',
+            	'I received bad information',
+            	'The property was inaccessible',
+            	'They refused to talk to me',
             ]}
           />
-          <RadioButtons
+          <DropDown
             name='support'
             value={this.state.knocked.support}
             changeHandler={this.updateField}
-            label='What was their level of support?'
+            placeholder='What was their level of support? (optional)'
             options={[
-              'Unknown',
-            	'Strong support',
-            	'Weak support',
+            	'Strong',
+            	'Weak',
             	'Undecided',
-            	'Weak oppose',
-            	'Strong oppose',
+            	'Weakly opposed',
+            	'Strongly opposed',
+              'Unknown',
             ]}
           />
-          <Checkboxes
-            name='issues'
-            checkedOptions={this.state.knocked.issues || []}
-            changeHandler={this.updateCheckedOptions}
-            label='What issues did they care about?'
-            options={[
-              'Jobs',
-              'Cost of living',
-              'Economy',
-              'Education ',
-              'Health',
-	            'Climate change',
-              'Environment',
-              'Refugees',
-              'Other',
-            ]}
+          <textarea name='issues'
+            placeholder={`What issues did they care about? (optional)
+e.g. health, jobs, climate change`}
+            value={this.state.knocked.issues || ''}
+            onChange={this.updateField}
           />
-          <RadioButtons
+          <textarea name='notes'
+            placeholder='Anything else? (optional)'
+            value={this.state.knocked.notes || ''}
+            onChange={this.updateField}
+          />
+          <DropDown
             name='followupRequired'
             value={this.state.knocked.followupRequired}
             changeHandler={this.updateField}
-            label='Should we have a followup conversation?'
+            placeholder='Should we have a followup conversation? (optional)'
             options={[
               'Yeah',
               'Nope',
             ]}
           />
-          <label>
-            Anything else?
-            <textarea name='notes'
-              value={this.state.knocked.notes || ''}
-              onChange={this.updateField} />
-          </label>
           <Submit
             password={this.state.password}
             data={this.state.knocked}
@@ -166,7 +163,8 @@ export default class KnockedForm extends Component {
               this.state.knocked.interaction,
             ]}
             successFn={this.handleSubmitSuccess}
-            failureFn={this.handleSubmitFailure} />
+            failureFn={this.handleSubmitFailure}
+          />
         </form>
       </div>
     );

@@ -1,0 +1,9 @@
+select {
+  width: 100%;
+  font-weight: 500;
+  padding-left: 6px;
+}
+
+.unfilled {
+  color: #b2b2b2;
+}

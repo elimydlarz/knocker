@@ -1,0 +1,22 @@
+exports[`DropDown does not explode 1`] = `
+<div
+  className="DropDown">
+  <select
+    className="filled"
+    name="COOL NAME"
+    onChange={[Function changeHandler]}
+    value="UNCOOL VALUE">
+    <option
+      disabled={true}
+      selected={true} />
+    <option
+      value="COOL VALUE">
+      COOL VALUE
+    </option>
+    <option
+      value="UNCOOL VALUE">
+      UNCOOL VALUE
+    </option>
+  </select>
+</div>
+`;

@@ -21,8 +21,6 @@ export default class TextInput extends Component {
         ? this.props.successFn
         : this.props.failureFn;
 
-      console.log(response);
-
       responseHandler(response);
     });
   }

@@ -6,340 +6,158 @@ exports[`KnockedForm does not explode 1`] = `
     Welcome to Knocker!
   </div>
   <form>
-    <div
-      className="TextInput">
-      <label>
-        Who knocked?
+    <div>
+      <div
+        className="TextInput">
         <input
           name="knocker"
           onChange={[Function bound updateField]}
+          placeholder="Who knocked?"
           type="text"
           value="" />
-      </label>
-    </div>
-    <label>
-      What\'s the password?
+      </div>
       <input
         name="password"
         onChange={[Function bound setPassword]}
+        placeholder="What\'s the password?"
         type="password"
         value="" />
-    </label>
-    <div
-      className="TextInput">
-      <label>
-        Where did you knock?
-        <input
-          name="knockeeAddress"
-          onChange={[Function bound updateField]}
-          type="text"
-          value="" />
-      </label>
     </div>
     <div
       className="TextInput">
-      <label>
-        Who did you speak to?
-        <input
-          name="knockeePerson"
-          onChange={[Function bound updateField]}
-          type="text"
-          value="" />
-      </label>
-    </div>
-    <div
-      className="RadioButtons">
-      <label>
-        <div
-          className="radio-heading">
-          What happened?
-        </div>
-        <label
-          className="radio-label">
-          <input
-            checked={false}
-            name="interaction"
-            onClick={[Function bound updateField]}
-            type="radio"
-            value="Non-meaningful interaction" />
-          Non-meaningful interaction
-        </label>
-        <label
-          className="radio-label">
-          <input
-            checked={false}
-            name="interaction"
-            onClick={[Function bound updateField]}
-            type="radio"
-            value="Meaningful interaction" />
-          Meaningful interaction
-        </label>
-        <label
-          className="radio-label">
-          <input
-            checked={false}
-            name="interaction"
-            onClick={[Function bound updateField]}
-            type="radio"
-            value="Busy" />
-          Busy
-        </label>
-        <label
-          className="radio-label">
-          <input
-            checked={false}
-            name="interaction"
-            onClick={[Function bound updateField]}
-            type="radio"
-            value="Language Barrier" />
-          Language Barrier
-        </label>
-        <label
-          className="radio-label">
-          <input
-            checked={false}
-            name="interaction"
-            onClick={[Function bound updateField]}
-            type="radio"
-            value="No Answer" />
-          No Answer
-        </label>
-        <label
-          className="radio-label">
-          <input
-            checked={false}
-            name="interaction"
-            onClick={[Function bound updateField]}
-            type="radio"
-            value="Bad Info" />
-          Bad Info
-        </label>
-        <label
-          className="radio-label">
-          <input
-            checked={false}
-            name="interaction"
-            onClick={[Function bound updateField]}
-            type="radio"
-            value="Inaccessible" />
-          Inaccessible
-        </label>
-        <label
-          className="radio-label">
-          <input
-            checked={false}
-            name="interaction"
-            onClick={[Function bound updateField]}
-            type="radio"
-            value="Refused" />
-          Refused
-        </label>
-      </label>
-    </div>
-    <div
-      className="RadioButtons">
-      <label>
-        <div
-          className="radio-heading">
-          What was their level of support?
-        </div>
-        <label
-          className="radio-label">
-          <input
-            checked={false}
-            name="support"
-            onClick={[Function bound updateField]}
-            type="radio"
-            value="Unknown" />
-          Unknown
-        </label>
-        <label
-          className="radio-label">
-          <input
-            checked={false}
-            name="support"
-            onClick={[Function bound updateField]}
-            type="radio"
-            value="Strong support" />
-          Strong support
-        </label>
-        <label
-          className="radio-label">
-          <input
-            checked={false}
-            name="support"
-            onClick={[Function bound updateField]}
-            type="radio"
-            value="Weak support" />
-          Weak support
-        </label>
-        <label
-          className="radio-label">
-          <input
-            checked={false}
-            name="support"
-            onClick={[Function bound updateField]}
-            type="radio"
-            value="Undecided" />
-          Undecided
-        </label>
-        <label
-          className="radio-label">
-          <input
-            checked={false}
-            name="support"
-            onClick={[Function bound updateField]}
-            type="radio"
-            value="Weak oppose" />
-          Weak oppose
-        </label>
-        <label
-          className="radio-label">
-          <input
-            checked={false}
-            name="support"
-            onClick={[Function bound updateField]}
-            type="radio"
-            value="Strong oppose" />
-          Strong oppose
-        </label>
-      </label>
-    </div>
-    <div
-      className="Checkboxes">
-      <label>
-        <div
-          className="checkbox-heading">
-          What issues did they care about?
-        </div>
-        <label
-          className="checkbox-label">
-          <input
-            checked={false}
-            name="issues"
-            onClick={[Function bound updateCheckedOptions]}
-            type="checkbox"
-            value="Jobs" />
-          Jobs
-        </label>
-        <label
-          className="checkbox-label">
-          <input
-            checked={false}
-            name="issues"
-            onClick={[Function bound updateCheckedOptions]}
-            type="checkbox"
-            value="Cost of living" />
-          Cost of living
-        </label>
-        <label
-          className="checkbox-label">
-          <input
-            checked={false}
-            name="issues"
-            onClick={[Function bound updateCheckedOptions]}
-            type="checkbox"
-            value="Economy" />
-          Economy
-        </label>
-        <label
-          className="checkbox-label">
-          <input
-            checked={false}
-            name="issues"
-            onClick={[Function bound updateCheckedOptions]}
-            type="checkbox"
-            value="Education " />
-          Education 
-        </label>
-        <label
-          className="checkbox-label">
-          <input
-            checked={false}
-            name="issues"
-            onClick={[Function bound updateCheckedOptions]}
-            type="checkbox"
-            value="Health" />
-          Health
-        </label>
-        <label
-          className="checkbox-label">
-          <input
-            checked={false}
-            name="issues"
-            onClick={[Function bound updateCheckedOptions]}
-            type="checkbox"
-            value="Climate change" />
-          Climate change
-        </label>
-        <label
-          className="checkbox-label">
-          <input
-            checked={false}
-            name="issues"
-            onClick={[Function bound updateCheckedOptions]}
-            type="checkbox"
-            value="Environment" />
-          Environment
-        </label>
-        <label
-          className="checkbox-label">
-          <input
-            checked={false}
-            name="issues"
-            onClick={[Function bound updateCheckedOptions]}
-            type="checkbox"
-            value="Refugees" />
-          Refugees
-        </label>
-        <label
-          className="checkbox-label">
-          <input
-            checked={false}
-            name="issues"
-            onClick={[Function bound updateCheckedOptions]}
-            type="checkbox"
-            value="Other" />
-          Other
-        </label>
-      </label>
-    </div>
-    <div
-      className="RadioButtons">
-      <label>
-        <div
-          className="radio-heading">
-          Should we have a followup conversation?
-        </div>
-        <label
-          className="radio-label">
-          <input
-            checked={false}
-            name="followupRequired"
-            onClick={[Function bound updateField]}
-            type="radio"
-            value="Yeah" />
-          Yeah
-        </label>
-        <label
-          className="radio-label">
-          <input
-            checked={false}
-            name="followupRequired"
-            onClick={[Function bound updateField]}
-            type="radio"
-            value="Nope" />
-          Nope
-        </label>
-      </label>
-    </div>
-    <label>
-      Anything else?
-      <textarea
-        name="notes"
+      <input
+        name="knockeeAddress"
         onChange={[Function bound updateField]}
+        placeholder="Where did you knock?"
+        type="text"
         value="" />
-    </label>
+    </div>
+    <div
+      className="TextInput">
+      <input
+        name="knockeePerson"
+        onChange={[Function bound updateField]}
+        placeholder="Who did you speak to? (optional)"
+        type="text"
+        value="" />
+    </div>
+    <div
+      className="DropDown">
+      <select
+        className="unfilled"
+        name="interaction"
+        onChange={[Function bound updateField]}
+        value={undefined}>
+        <option
+          disabled={true}
+          selected={true}>
+          What happened?
+        </option>
+        <option
+          value="We had a non-meaningful interaction">
+          We had a non-meaningful interaction
+        </option>
+        <option
+          value="We had a meaningful interaction">
+          We had a meaningful interaction
+        </option>
+        <option
+          value="They were busy">
+          They were busy
+        </option>
+        <option
+          value="There was a language barrier">
+          There was a language barrier
+        </option>
+        <option
+          value="There was no answer">
+          There was no answer
+        </option>
+        <option
+          value="I received bad information">
+          I received bad information
+        </option>
+        <option
+          value="The property was inaccessible">
+          The property was inaccessible
+        </option>
+        <option
+          value="They refused to talk to me">
+          They refused to talk to me
+        </option>
+      </select>
+    </div>
+    <div
+      className="DropDown">
+      <select
+        className="unfilled"
+        name="support"
+        onChange={[Function bound updateField]}
+        value={undefined}>
+        <option
+          disabled={true}
+          selected={true}>
+          What was their level of support? (optional)
+        </option>
+        <option
+          value="Strong">
+          Strong
+        </option>
+        <option
+          value="Weak">
+          Weak
+        </option>
+        <option
+          value="Undecided">
+          Undecided
+        </option>
+        <option
+          value="Weakly opposed">
+          Weakly opposed
+        </option>
+        <option
+          value="Strongly opposed">
+          Strongly opposed
+        </option>
+        <option
+          value="Unknown">
+          Unknown
+        </option>
+      </select>
+    </div>
+    <textarea
+      name="issues"
+      onChange={[Function bound updateField]}
+      placeholder="What issues did they care about? (optional)
+    e.g. health, jobs, climate change"
+      value="" />
+    <textarea
+      name="notes"
+      onChange={[Function bound updateField]}
+      placeholder="Anything else? (optional)"
+      value="" />
+    <div
+      className="DropDown">
+      <select
+        className="unfilled"
+        name="followupRequired"
+        onChange={[Function bound updateField]}
+        value={undefined}>
+        <option
+          disabled={true}
+          selected={true}>
+          Should we have a followup conversation? (optional)
+        </option>
+        <option
+          value="Yeah">
+          Yeah
+        </option>
+        <option
+          value="Nope">
+          Nope
+        </option>
+      </select>
+    </div>
     <div
       className="Submit">
       <input
