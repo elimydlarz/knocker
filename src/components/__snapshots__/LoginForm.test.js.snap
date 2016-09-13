@@ -1,0 +1,29 @@
+exports[`LoginForm does not explode 1`] = `
+<div
+  className="Login">
+  <form>
+    <div
+      className="TextInput">
+      <input
+        name="user"
+        onChange={[Function userHandler]}
+        placeholder="Who\'s knocking?"
+        type="text"
+        value="COOL USER" />
+    </div>
+    <input
+      name="password"
+      onChange={[Function passwordHandler]}
+      placeholder="What\'s your password?"
+      type="password"
+      value="COOL PASSWORD" />
+    <div
+      className="Submit">
+      <input
+        disabled={false}
+        onClick={[Function bound transmit]}
+        type="submit" />
+    </div>
+  </form>
+</div>
+`;

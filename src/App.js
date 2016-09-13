@@ -40,7 +40,7 @@ export default class App extends Component {
       <FlashMessage
         message={this.state.message}
       />
-      {this.state.authorised ? undefined : (
+      {!this.state.authorised ? (
         <LoginForm
           user={this.state.user || ''}
           password={this.state.password || ''}
@@ -49,14 +49,14 @@ export default class App extends Component {
           updateMessage={this.updateMessage}
           updateAuthorised={this.updateAuthorised}
         />
-      )}
-      {!this.state.authorised ? undefined : (
+      ) : undefined}
+      {this.state.authorised ? (
         <KnockedForm
           user={this.state.user}
           password={this.state.password}
           updateMessage={this.updateMessage}
         />
-      )}
+      ) : undefined}
     </div>
   ); }
 }

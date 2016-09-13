@@ -1,0 +1,9 @@
+exports[`Submit does not explode 1`] = `
+<div
+  className="Submit">
+  <input
+    disabled={false}
+    onClick={[Function bound transmit]}
+    type="submit" />
+</div>
+`;

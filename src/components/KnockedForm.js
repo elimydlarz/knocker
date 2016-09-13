@@ -13,7 +13,6 @@ export default class KnockedForm extends Component {
     };
 
     this.updateField = this.updateField.bind(this);
-    this.updateCheckedOptions = this.updateCheckedOptions.bind(this);
     this.submitSuccess = this.submitSuccess.bind(this);
     this.submitFailure = this.submitFailure.bind(this);
   }
@@ -25,20 +24,6 @@ export default class KnockedForm extends Component {
         [event.target.name]: event.target.value,
       },
     });
-  }
-
-  updateCheckedOptions(event) {
-    const add = (list, value) => (list || []).concat(value);
-    const remove = (list, value) => list.filter(option => option !== value);
-
-    this.setState({
-      knocked: {
-        ...this.state.knocked,
-        [event.target.name]: event.target.checked
-          ? add(this.state.knocked[event.target.name], event.target.value)
-          : remove(this.state.knocked[event.target.name], event.target.value)
-      }
-    })
   }
 
   submitSuccess() {

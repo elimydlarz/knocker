@@ -62,7 +62,7 @@ exports[`KnockedForm does not explode 1`] = `
       <input
         name="knockeePerson"
         onChange={[Function bound updateField]}
-        placeholder="Who did you speak to? (optional)"
+        placeholder="Who did you speak to?"
         type="text"
         value="" />
     </div>
