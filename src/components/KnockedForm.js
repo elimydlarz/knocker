@@ -56,8 +56,14 @@ export default class KnockedForm extends Component {
     });
   }
 
-  handleSubmitFailure() {
-    this.setState({ message: 'Whoops!' });
+  handleSubmitFailure(response) {
+    console.log(response);
+    const message = response.status === 401
+      ? `We're having trouble authenticating you.
+        Make sure you've identified yourself correctly and
+        supplied the right password.`
+      : 'Whoops! Something unexpected has gone wrong.'
+    this.setState({ message });
   }
 
   render() {
@@ -155,6 +161,7 @@ export default class KnockedForm extends Component {
             data={this.state.knocked}
             requiredFields={[
               this.state.knocked.knocker,
+              this.state.password,
               this.state.knocked.knockeeAddress,
               this.state.knocked.interaction,
             ]}
