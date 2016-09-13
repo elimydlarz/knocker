@@ -17,11 +17,11 @@ export default class TextInput extends Component {
     }
 
     transmit(auth, 'knocked', this.props.data, response => {
-      if (response.status === 201) {
-        this.props.successFn();
-      } else {
-        this.props.failureFn();
-      }
+      const responseHandler = response.status === 201
+        ? this.props.successFn
+        : this.props.failureFn;
+
+      responseHandler();
     });
   }
 
