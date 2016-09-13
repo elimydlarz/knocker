@@ -6,6 +6,7 @@ describe('TextInput', () => {
   it('does not explode', () => {
     const component = renderer.create(
       <TextInput
+        name='COOL NAME'
         label='COOL FIELD'
         value='COOL VALUE'
         changeHandler={() => {}} />

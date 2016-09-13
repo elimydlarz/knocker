@@ -1,4 +1,4 @@
-exports[`RadioButtons displays message 1`] = `
+exports[`RadioButtons does not explode 1`] = `
 <div
   className="RadioButtons">
   <label>

@@ -4,7 +4,7 @@ exports[`TextInput does not explode 1`] = `
   <label>
     COOL FIELD
     <input
-      name="knocker"
+      name="COOL NAME"
       onChange={[Function changeHandler]}
       type="text"
       value="COOL VALUE" />

@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import FlashMessage from './FlashMessage';
-import transmit from '../services/transmit.js';
 import RadioButtons from './RadioButtons';
 import Checkboxes from './Checkboxes';
 import TextInput from './TextInput';
+import Submit from './Submit';
 import '../css/KnockedForm.css';
 
 export default class KnockedForm extends Component {
@@ -14,12 +14,14 @@ export default class KnockedForm extends Component {
       knocked: {},
     };
 
-    this.updateState = this.updateState.bind(this);
+    this.updateField = this.updateField.bind(this);
     this.updateCheckedOptions = this.updateCheckedOptions.bind(this);
-    this.transmit = this.transmit.bind(this);
+    this.handleSubmitSuccess = this.handleSubmitSuccess.bind(this);
+    this.handleSubmitFailure = this.handleSubmitFailure.bind(this);
   }
 
-  updateState(event) {
+  updateField(event) {
+    console.log(event.target);
     this.setState({
       knocked: {
         ...this.state.knocked,
@@ -42,19 +44,15 @@ export default class KnockedForm extends Component {
     })
   }
 
-  transmit(event) {
-    event.preventDefault();
-
-    transmit('knocked', this.state.knocked, response => {
-      if (response.status === 201) {
-        this.setState({
-          message: `Thanks heaps for knocking at ${this.state.knocked.address}`,
-          knocked: { knocker: this.state.knocked.knocker },
-        });
-      } else {
-        this.setState({ message: 'Whoops!' });
-      }
+  handleSubmitSuccess() {
+    this.setState({
+      message: `Thanks heaps for knocking at ${this.state.knocked.knockeeAddress}`,
+      knocked: { knocker: this.state.knocked.knocker },
     });
+  }
+
+  handleSubmitFailure() {
+    this.setState({ message: 'Whoops!' });
   }
 
   render() {
@@ -64,21 +62,24 @@ export default class KnockedForm extends Component {
           message={this.state.message} />
         <form>
           <TextInput
+            name='knocker'
             label='Who knocked?'
             value={this.state.knocked.knocker || ''}
-            changeHandler={this.updateState} />
+            changeHandler={this.updateField} />
           <TextInput
+            name='knockeeAddress'
             label='Where did you knock?'
-            value={this.state.knocked.address || ''}
-            changeHandler={this.updateState} />
+            value={this.state.knocked.knockeeAddress || ''}
+            changeHandler={this.updateField} />
           <TextInput
+            name='knockeePerson'
             label='Who did you speak to?'
-            value={this.state.knocked.knockee || ''}
-            changeHandler={this.updateState} />
+            value={this.state.knocked.knockeePerson || ''}
+            changeHandler={this.updateField} />
           <RadioButtons
             name='interaction'
             value={this.state.knocked.interaction}
-            changeHandler={this.updateState}
+            changeHandler={this.updateField}
             label='What happened?'
             options={[
               'Non-meaningful interaction',
@@ -94,7 +95,7 @@ export default class KnockedForm extends Component {
           <RadioButtons
             name='support'
             value={this.state.knocked.support}
-            changeHandler={this.updateState}
+            changeHandler={this.updateField}
             label='What was their level of support?'
             options={[
               'Unknown',
@@ -124,8 +125,8 @@ export default class KnockedForm extends Component {
           />
           <RadioButtons
             name='followupRequired'
-            value={this.state.knocked.interaction}
-            changeHandler={this.updateState}
+            value={this.state.knocked.followupRequired}
+            changeHandler={this.updateField}
             label='Should we have a followup conversation?'
             options={[
               'Yeah',
@@ -136,15 +137,17 @@ export default class KnockedForm extends Component {
             Anything else?
             <textarea name="notes"
               value={this.state.knocked.notes || ''}
-              onChange={this.updateState} />
+              onChange={this.updateField} />
           </label>
-          <input type="submit"
-            disabled={
-              !this.state.knocked.knocker ||
-              !this.state.knocked.address ||
-              !this.state.knocked.interaction
-            }
-            onClick={this.transmit} />
+          <Submit
+            data={this.state.knocked}
+            requiredFields={[
+              this.state.knocked.knocker,
+              this.state.knocked.knockeeAddress,
+              this.state.knocked.interaction,
+            ]}
+            successFn={this.handleSubmitSuccess}
+            failureFn={this.handleSubmitFailure} />
         </form>
       </div>
     );

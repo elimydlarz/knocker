@@ -17,7 +17,7 @@ exports[`App does not explode 1`] = `
           Who knocked?
           <input
             name="knocker"
-            onChange={[Function bound updateState]}
+            onChange={[Function bound updateField]}
             type="text"
             value="" />
         </label>
@@ -27,8 +27,8 @@ exports[`App does not explode 1`] = `
         <label>
           Where did you knock?
           <input
-            name="knocker"
-            onChange={[Function bound updateState]}
+            name="knockeeAddress"
+            onChange={[Function bound updateField]}
             type="text"
             value="" />
         </label>
@@ -38,8 +38,8 @@ exports[`App does not explode 1`] = `
         <label>
           Who did you speak to?
           <input
-            name="knocker"
-            onChange={[Function bound updateState]}
+            name="knockeePerson"
+            onChange={[Function bound updateField]}
             type="text"
             value="" />
         </label>
@@ -56,7 +56,7 @@ exports[`App does not explode 1`] = `
             <input
               checked={false}
               name="interaction"
-              onClick={[Function bound updateState]}
+              onClick={[Function bound updateField]}
               type="radio"
               value="Non-meaningful interaction" />
             Non-meaningful interaction
@@ -66,7 +66,7 @@ exports[`App does not explode 1`] = `
             <input
               checked={false}
               name="interaction"
-              onClick={[Function bound updateState]}
+              onClick={[Function bound updateField]}
               type="radio"
               value="Meaningful interaction" />
             Meaningful interaction
@@ -76,7 +76,7 @@ exports[`App does not explode 1`] = `
             <input
               checked={false}
               name="interaction"
-              onClick={[Function bound updateState]}
+              onClick={[Function bound updateField]}
               type="radio"
               value="Busy" />
             Busy
@@ -86,7 +86,7 @@ exports[`App does not explode 1`] = `
             <input
               checked={false}
               name="interaction"
-              onClick={[Function bound updateState]}
+              onClick={[Function bound updateField]}
               type="radio"
               value="Language Barrier" />
             Language Barrier
@@ -96,7 +96,7 @@ exports[`App does not explode 1`] = `
             <input
               checked={false}
               name="interaction"
-              onClick={[Function bound updateState]}
+              onClick={[Function bound updateField]}
               type="radio"
               value="No Answer" />
             No Answer
@@ -106,7 +106,7 @@ exports[`App does not explode 1`] = `
             <input
               checked={false}
               name="interaction"
-              onClick={[Function bound updateState]}
+              onClick={[Function bound updateField]}
               type="radio"
               value="Bad Info" />
             Bad Info
@@ -116,7 +116,7 @@ exports[`App does not explode 1`] = `
             <input
               checked={false}
               name="interaction"
-              onClick={[Function bound updateState]}
+              onClick={[Function bound updateField]}
               type="radio"
               value="Inaccessible" />
             Inaccessible
@@ -126,7 +126,7 @@ exports[`App does not explode 1`] = `
             <input
               checked={false}
               name="interaction"
-              onClick={[Function bound updateState]}
+              onClick={[Function bound updateField]}
               type="radio"
               value="Refused" />
             Refused
@@ -145,7 +145,7 @@ exports[`App does not explode 1`] = `
             <input
               checked={false}
               name="support"
-              onClick={[Function bound updateState]}
+              onClick={[Function bound updateField]}
               type="radio"
               value="Unknown" />
             Unknown
@@ -155,7 +155,7 @@ exports[`App does not explode 1`] = `
             <input
               checked={false}
               name="support"
-              onClick={[Function bound updateState]}
+              onClick={[Function bound updateField]}
               type="radio"
               value="Strong support" />
             Strong support
@@ -165,7 +165,7 @@ exports[`App does not explode 1`] = `
             <input
               checked={false}
               name="support"
-              onClick={[Function bound updateState]}
+              onClick={[Function bound updateField]}
               type="radio"
               value="Weak support" />
             Weak support
@@ -175,7 +175,7 @@ exports[`App does not explode 1`] = `
             <input
               checked={false}
               name="support"
-              onClick={[Function bound updateState]}
+              onClick={[Function bound updateField]}
               type="radio"
               value="Undecided" />
             Undecided
@@ -185,7 +185,7 @@ exports[`App does not explode 1`] = `
             <input
               checked={false}
               name="support"
-              onClick={[Function bound updateState]}
+              onClick={[Function bound updateField]}
               type="radio"
               value="Weak oppose" />
             Weak oppose
@@ -195,10 +195,138 @@ exports[`App does not explode 1`] = `
             <input
               checked={false}
               name="support"
-              onClick={[Function bound updateState]}
+              onClick={[Function bound updateField]}
               type="radio"
               value="Strong oppose" />
             Strong oppose
+          </label>
+        </label>
+      </div>
+      <div
+        className="Checkboxes">
+        <label>
+          <div
+            className="checkbox-heading">
+            What issues did they care about?
+          </div>
+          <label
+            className="checkbox-label">
+            <input
+              checked={false}
+              name="issues"
+              onClick={[Function bound updateCheckedOptions]}
+              type="checkbox"
+              value="Jobs" />
+            Jobs
+          </label>
+          <label
+            className="checkbox-label">
+            <input
+              checked={false}
+              name="issues"
+              onClick={[Function bound updateCheckedOptions]}
+              type="checkbox"
+              value="Cost of living" />
+            Cost of living
+          </label>
+          <label
+            className="checkbox-label">
+            <input
+              checked={false}
+              name="issues"
+              onClick={[Function bound updateCheckedOptions]}
+              type="checkbox"
+              value="Economy" />
+            Economy
+          </label>
+          <label
+            className="checkbox-label">
+            <input
+              checked={false}
+              name="issues"
+              onClick={[Function bound updateCheckedOptions]}
+              type="checkbox"
+              value="Education " />
+            Education 
+          </label>
+          <label
+            className="checkbox-label">
+            <input
+              checked={false}
+              name="issues"
+              onClick={[Function bound updateCheckedOptions]}
+              type="checkbox"
+              value="Health" />
+            Health
+          </label>
+          <label
+            className="checkbox-label">
+            <input
+              checked={false}
+              name="issues"
+              onClick={[Function bound updateCheckedOptions]}
+              type="checkbox"
+              value="Climate change" />
+            Climate change
+          </label>
+          <label
+            className="checkbox-label">
+            <input
+              checked={false}
+              name="issues"
+              onClick={[Function bound updateCheckedOptions]}
+              type="checkbox"
+              value="Environment" />
+            Environment
+          </label>
+          <label
+            className="checkbox-label">
+            <input
+              checked={false}
+              name="issues"
+              onClick={[Function bound updateCheckedOptions]}
+              type="checkbox"
+              value="Refugees" />
+            Refugees
+          </label>
+          <label
+            className="checkbox-label">
+            <input
+              checked={false}
+              name="issues"
+              onClick={[Function bound updateCheckedOptions]}
+              type="checkbox"
+              value="Other" />
+            Other
+          </label>
+        </label>
+      </div>
+      <div
+        className="RadioButtons">
+        <label>
+          <div
+            className="radio-heading">
+            Should we have a followup conversation?
+          </div>
+          <label
+            className="radio-label">
+            <input
+              checked={false}
+              name="followupRequired"
+              onClick={[Function bound updateField]}
+              type="radio"
+              value="Yeah" />
+            Yeah
+          </label>
+          <label
+            className="radio-label">
+            <input
+              checked={false}
+              name="followupRequired"
+              onClick={[Function bound updateField]}
+              type="radio"
+              value="Nope" />
+            Nope
           </label>
         </label>
       </div>
@@ -206,13 +334,16 @@ exports[`App does not explode 1`] = `
         Anything else?
         <textarea
           name="notes"
-          onChange={[Function bound updateState]}
+          onChange={[Function bound updateField]}
           value="" />
       </label>
-      <input
-        disabled={true}
-        onClick={[Function bound transmit]}
-        type="submit" />
+      <div
+        className="Submit">
+        <input
+          disabled={true}
+          onClick={[Function bound transmit]}
+          type="submit" />
+      </div>
     </form>
   </div>
 </div>

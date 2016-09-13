@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer';
 import RadioButtons from './RadioButtons';
 
 describe('RadioButtons', () => {
-  it('displays message', () => {
+  it('does not explode', () => {
     const component = renderer.create(
       <RadioButtons
         label='COOL RADIO GROUP'

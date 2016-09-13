@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import '../css/RadioButtons.css';
+import '../css/TextInput.css';
 
 export default class TextInput extends Component {
   render() {
@@ -7,7 +7,7 @@ export default class TextInput extends Component {
       <div className='TextInput'>
         <label>
           {this.props.label}
-          <input type="text" name="knocker"
+          <input type="text" name={this.props.name}
             value={this.props.value}
             onChange={this.props.changeHandler} />
         </label>
