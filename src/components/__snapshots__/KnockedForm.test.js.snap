@@ -1,44 +1,13 @@
 exports[`KnockedForm does not explode 1`] = `
 <div
   className="KnockedForm">
-  <div
-    className="FlashMessage">
-    Welcome to Knocker!
-  </div>
   <form>
-    <div
-      className="Login">
-      <div
-        className="TextInput">
-        <input
-          name="knocker"
-          onChange={[Function bound updateField]}
-          placeholder="Who\'s knocking?"
-          type="text"
-          value="" />
-      </div>
-      <input
-        name="password"
-        onChange={[Function bound setPassword]}
-        placeholder="What\'s your password?"
-        type="password"
-        value="" />
-    </div>
     <div
       className="TextInput">
       <input
         name="knockeeAddress"
         onChange={[Function bound updateField]}
         placeholder="Where did you knock?"
-        type="text"
-        value="" />
-    </div>
-    <div
-      className="TextInput">
-      <input
-        name="knockeePerson"
-        onChange={[Function bound updateField]}
-        placeholder="Who did you speak to? (optional)"
         type="text"
         value="" />
     </div>
@@ -89,6 +58,15 @@ exports[`KnockedForm does not explode 1`] = `
       </select>
     </div>
     <div
+      className="TextInput">
+      <input
+        name="knockeePerson"
+        onChange={[Function bound updateField]}
+        placeholder="Who did you speak to? (optional)"
+        type="text"
+        value="" />
+    </div>
+    <div
       className="DropDown">
       <select
         className="unfilled"
@@ -98,7 +76,7 @@ exports[`KnockedForm does not explode 1`] = `
         <option
           disabled={true}
           selected={true}>
-          What was their level of support? (optional)
+          What was their level of support?
         </option>
         <option
           value="Strong">
@@ -129,13 +107,12 @@ exports[`KnockedForm does not explode 1`] = `
     <textarea
       name="issues"
       onChange={[Function bound updateField]}
-      placeholder="What issues did they care about? (optional)
-    e.g. health, jobs, climate change"
+      placeholder="What issues did they care about?"
       value="" />
     <textarea
       name="notes"
       onChange={[Function bound updateField]}
-      placeholder="Anything else? (optional)"
+      placeholder="Anything else?"
       value="" />
     <div
       className="DropDown">
@@ -147,7 +124,7 @@ exports[`KnockedForm does not explode 1`] = `
         <option
           disabled={true}
           selected={true}>
-          Should we have a followup conversation? (optional)
+          Should we have a followup conversation?
         </option>
         <option
           value="Yeah">

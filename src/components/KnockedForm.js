@@ -1,29 +1,21 @@
 import React, { Component } from 'react';
-import FlashMessage from './FlashMessage';
 import TextInput from './TextInput';
 import Submit from './Submit';
 import DropDown from './DropDown';
-import Login from './Login';
 import '../css/KnockedForm.css';
 
 export default class KnockedForm extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       message: 'Welcome to Knocker!',
-      knocked: {},
-      password: '',
+      knocked: { knocker: this.props.user },
     };
 
-    this.setPassword = this.setPassword.bind(this);
     this.updateField = this.updateField.bind(this);
     this.updateCheckedOptions = this.updateCheckedOptions.bind(this);
-    this.handleSubmitSuccess = this.handleSubmitSuccess.bind(this);
-    this.handleSubmitFailure = this.handleSubmitFailure.bind(this);
-  }
-
-  setPassword(event) {
-    this.setState({ password: event.target.value });
+    this.submitSuccess = this.submitSuccess.bind(this);
+    this.submitFailure = this.submitFailure.bind(this);
   }
 
   updateField(event) {
@@ -49,50 +41,26 @@ export default class KnockedForm extends Component {
     })
   }
 
-  handleSubmitSuccess() {
-    this.setState({
-      message: `Thanks heaps for knocking at ${this.state.knocked.knockeeAddress}.
-                You're a great knocker, ${this.state.knocked.knocker}!`,
-      knocked: { knocker: this.state.knocked.knocker },
-      authorised: true,
-    });
+  submitSuccess() {
+    this.props.updateMessage(`Thanks heaps for knocking at
+      ${this.state.knocked.knockeeAddress}. You're a great knocker,
+      ${this.props.user}!`);
+
+    this.setState({ knocked: { knocker: this.props.user } });
   }
 
-  handleSubmitFailure(response) {
-    const message = response.status === 401
-      ? `We're having trouble authenticating you.
-        Make sure you've identified yourself correctly and
-        supplied the right password.`
-      : 'Whoops! Something unexpected has gone wrong.'
-    this.setState({
-      message ,
-      authorised: false,
-    });
+  submitFailure(response) {
+    this.props.updateMessage('Whoops! Something unexpected has gone wrong.');
   }
 
   render() {
     return (
       <div className='KnockedForm'>
-        <FlashMessage
-          message={this.state.message} />
         <form>
-          <Login
-            user={this.state.knocked.knocker || ''}
-            password={this.state.password}
-            userHandler={this.updateField}
-            passwordHandler={this.setPassword}
-            authorised={this.state.authorised}
-          />
           <TextInput
             name='knockeeAddress'
             label='Where did you knock?'
             value={this.state.knocked.knockeeAddress || ''}
-            changeHandler={this.updateField}
-          />
-          <TextInput
-            name='knockeePerson'
-            label='Who did you speak to? (optional)'
-            value={this.state.knocked.knockeePerson || ''}
             changeHandler={this.updateField}
           />
           <DropDown
@@ -111,11 +79,17 @@ export default class KnockedForm extends Component {
             	'They refused to talk to me',
             ]}
           />
+          <TextInput
+            name='knockeePerson'
+            label='Who did you speak to?'
+            value={this.state.knocked.knockeePerson || ''}
+            changeHandler={this.updateField}
+          />
           <DropDown
             name='support'
             value={this.state.knocked.support}
             changeHandler={this.updateField}
-            placeholder='What was their level of support? (optional)'
+            placeholder='What was their level of support?'
             options={[
             	'Strong',
             	'Weak',
@@ -126,13 +100,12 @@ export default class KnockedForm extends Component {
             ]}
           />
           <textarea name='issues'
-            placeholder={`What issues did they care about? (optional)
-e.g. health, jobs, climate change`}
+            placeholder={'What issues did they care about?'}
             value={this.state.knocked.issues || ''}
             onChange={this.updateField}
           />
           <textarea name='notes'
-            placeholder='Anything else? (optional)'
+            placeholder='Anything else?'
             value={this.state.knocked.notes || ''}
             onChange={this.updateField}
           />
@@ -140,23 +113,24 @@ e.g. health, jobs, climate change`}
             name='followupRequired'
             value={this.state.knocked.followupRequired}
             changeHandler={this.updateField}
-            placeholder='Should we have a followup conversation? (optional)'
+            placeholder='Should we have a followup conversation?'
             options={[
               'Yeah',
               'Nope',
             ]}
           />
           <Submit
-            password={this.state.password}
+            user={this.props.user}
+            password={this.props.password}
+            eventType='knocked'
             data={this.state.knocked}
             requiredFields={[
               this.state.knocked.knocker,
-              this.state.password,
               this.state.knocked.knockeeAddress,
               this.state.knocked.interaction,
             ]}
-            successFn={this.handleSubmitSuccess}
-            failureFn={this.handleSubmitFailure}
+            successFn={this.submitSuccess}
+            failureFn={this.submitFailure}
           />
         </form>
       </div>

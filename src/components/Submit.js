@@ -12,11 +12,11 @@ export default class TextInput extends Component {
     event.preventDefault();
 
     const auth = {
-      user: this.props.data.knocker,
+      user: this.props.user,
       password: this.props.password
     }
 
-    transmit(auth, 'knocked', this.props.data, response => {
+    transmit(auth, this.props.eventType, this.props.data, response => {
       const responseHandler = response.status === 201
         ? this.props.successFn
         : this.props.failureFn;
@@ -26,10 +26,7 @@ export default class TextInput extends Component {
   }
 
   valid() {
-    return this.props.requiredFields.every(
-      field =>
-        field && field.length > 0
-    )
+    return this.props.requiredFields.every(field => field && field.length > 0)
   }
 
   render() { return (
