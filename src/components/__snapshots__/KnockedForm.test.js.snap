@@ -17,6 +17,14 @@ exports[`KnockedForm does not explode 1`] = `
           value="" />
       </label>
     </div>
+    <label>
+      What\'s the password?
+      <input
+        name="password"
+        onChange={[Function bound setPassword]}
+        type="password"
+        value="" />
+    </label>
     <div
       className="TextInput">
       <label>
