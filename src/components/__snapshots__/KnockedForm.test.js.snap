@@ -1,0 +1,213 @@
+exports[`KnockedForm does not explode 1`] = `
+<div
+  className="KnockedForm">
+  <div
+    className="FlashMessage">
+    Welcome to Knocker!
+  </div>
+  <form>
+    <div
+      className="TextInput">
+      <label>
+        Who knocked?
+        <input
+          name="knocker"
+          onChange={[Function bound updateState]}
+          type="text"
+          value="" />
+      </label>
+    </div>
+    <div
+      className="TextInput">
+      <label>
+        Where did you knock?
+        <input
+          name="knocker"
+          onChange={[Function bound updateState]}
+          type="text"
+          value="" />
+      </label>
+    </div>
+    <div
+      className="TextInput">
+      <label>
+        Who did you speak to?
+        <input
+          name="knocker"
+          onChange={[Function bound updateState]}
+          type="text"
+          value="" />
+      </label>
+    </div>
+    <div
+      className="RadioButtons">
+      <label>
+        <div
+          className="radio-heading">
+          What happened?
+        </div>
+        <label
+          className="radio-label">
+          <input
+            checked={false}
+            name="interaction"
+            onClick={[Function bound updateState]}
+            type="radio"
+            value="Non-meaningful interaction" />
+          Non-meaningful interaction
+        </label>
+        <label
+          className="radio-label">
+          <input
+            checked={false}
+            name="interaction"
+            onClick={[Function bound updateState]}
+            type="radio"
+            value="Meaningful interaction" />
+          Meaningful interaction
+        </label>
+        <label
+          className="radio-label">
+          <input
+            checked={false}
+            name="interaction"
+            onClick={[Function bound updateState]}
+            type="radio"
+            value="Busy" />
+          Busy
+        </label>
+        <label
+          className="radio-label">
+          <input
+            checked={false}
+            name="interaction"
+            onClick={[Function bound updateState]}
+            type="radio"
+            value="Language Barrier" />
+          Language Barrier
+        </label>
+        <label
+          className="radio-label">
+          <input
+            checked={false}
+            name="interaction"
+            onClick={[Function bound updateState]}
+            type="radio"
+            value="No Answer" />
+          No Answer
+        </label>
+        <label
+          className="radio-label">
+          <input
+            checked={false}
+            name="interaction"
+            onClick={[Function bound updateState]}
+            type="radio"
+            value="Bad Info" />
+          Bad Info
+        </label>
+        <label
+          className="radio-label">
+          <input
+            checked={false}
+            name="interaction"
+            onClick={[Function bound updateState]}
+            type="radio"
+            value="Inaccessible" />
+          Inaccessible
+        </label>
+        <label
+          className="radio-label">
+          <input
+            checked={false}
+            name="interaction"
+            onClick={[Function bound updateState]}
+            type="radio"
+            value="Refused" />
+          Refused
+        </label>
+      </label>
+    </div>
+    <div
+      className="RadioButtons">
+      <label>
+        <div
+          className="radio-heading">
+          What was their level of support?
+        </div>
+        <label
+          className="radio-label">
+          <input
+            checked={false}
+            name="support"
+            onClick={[Function bound updateState]}
+            type="radio"
+            value="Unknown" />
+          Unknown
+        </label>
+        <label
+          className="radio-label">
+          <input
+            checked={false}
+            name="support"
+            onClick={[Function bound updateState]}
+            type="radio"
+            value="Strong support" />
+          Strong support
+        </label>
+        <label
+          className="radio-label">
+          <input
+            checked={false}
+            name="support"
+            onClick={[Function bound updateState]}
+            type="radio"
+            value="Weak support" />
+          Weak support
+        </label>
+        <label
+          className="radio-label">
+          <input
+            checked={false}
+            name="support"
+            onClick={[Function bound updateState]}
+            type="radio"
+            value="Undecided" />
+          Undecided
+        </label>
+        <label
+          className="radio-label">
+          <input
+            checked={false}
+            name="support"
+            onClick={[Function bound updateState]}
+            type="radio"
+            value="Weak oppose" />
+          Weak oppose
+        </label>
+        <label
+          className="radio-label">
+          <input
+            checked={false}
+            name="support"
+            onClick={[Function bound updateState]}
+            type="radio"
+            value="Strong oppose" />
+          Strong oppose
+        </label>
+      </label>
+    </div>
+    <label>
+      Anything else?
+      <textarea
+        name="notes"
+        onChange={[Function bound updateState]}
+        value="" />
+    </label>
+    <input
+      disabled={true}
+      onClick={[Function bound transmit]}
+      type="submit" />
+  </form>
+</div>
+`;

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../css/RadioButtons.css';
 
-export default class Knocked extends Component {
+export default class RadioButtons extends Component {
   render() {
     return (
       <div className='RadioButtons'>
@@ -10,8 +10,11 @@ export default class Knocked extends Component {
             {this.props.label}
           </div>
           {this.props.options.map(option =>
-            <label className="radio-label">
-              <input type='radio' checked={false} />
+            <label key={option} className="radio-label">
+              <input name={this.props.name} type='radio'
+                value={option}
+                checked={this.props.value === option}
+                onClick={this.props.changeHandler} />
               {option}
             </label>
           )}

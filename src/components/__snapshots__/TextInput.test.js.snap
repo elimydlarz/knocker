@@ -1,0 +1,13 @@
+exports[`TextInput does not explode 1`] = `
+<div
+  className="TextInput">
+  <label>
+    COOL FIELD
+    <input
+      name="knocker"
+      onChange={[Function changeHandler]}
+      type="text"
+      value="COOL VALUE" />
+  </label>
+</div>
+`;
