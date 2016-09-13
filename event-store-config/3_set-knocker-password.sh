@@ -1,0 +1,1 @@
+curl -X POST -H "Authorization: Basic YWRtaW46Y2hhbmdlaXQ=" -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: a1216394-6dec-decd-e853-c2f50330b443" -d '{ "newPassword": "insensitivewolfbanjo" }' "http://54.206.125.76:2113/users/knocker/command/reset-password"
