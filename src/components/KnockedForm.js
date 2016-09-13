@@ -3,6 +3,7 @@ import FlashMessage from './FlashMessage';
 import TextInput from './TextInput';
 import Submit from './Submit';
 import DropDown from './DropDown';
+import Login from './Login';
 import '../css/KnockedForm.css';
 
 export default class KnockedForm extends Component {
@@ -75,21 +76,13 @@ export default class KnockedForm extends Component {
         <FlashMessage
           message={this.state.message} />
         <form>
-          { this.state.authorised ? undefined :
-            <div>
-              <TextInput
-                name='knocker'
-                label='Who knocked?'
-                value={this.state.knocked.knocker || ''}
-                changeHandler={this.updateField}
-              />
-              <input type='password' name='password'
-                placeholder="What's the password?"
-                value={this.state.password}
-                onChange={this.setPassword}
-              />
-            </div>
-          }
+          <Login
+            user={this.state.knocked.knocker || ''}
+            password={this.state.password}
+            userHandler={this.updateField}
+            passwordHandler={this.setPassword}
+            authorised={this.state.authorised}
+          />
           <TextInput
             name='knockeeAddress'
             label='Where did you knock?'

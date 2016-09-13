@@ -11,20 +11,21 @@ exports[`App does not explode 1`] = `
       Welcome to Knocker!
     </div>
     <form>
-      <div>
+      <div
+        className="Login">
         <div
           className="TextInput">
           <input
             name="knocker"
             onChange={[Function bound updateField]}
-            placeholder="Who knocked?"
+            placeholder="Who\'s knocking?"
             type="text"
             value="" />
         </div>
         <input
           name="password"
           onChange={[Function bound setPassword]}
-          placeholder="What\'s the password?"
+          placeholder="What\'s your password?"
           type="password"
           value="" />
       </div>
