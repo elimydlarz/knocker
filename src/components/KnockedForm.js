@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import FlashMessage from './FlashMessage';
 import transmit from '../services/transmit.js';
 import RadioButtons from './RadioButtons';
+import Checkboxes from './Checkboxes';
 import TextInput from './TextInput';
 import '../css/KnockedForm.css';
 
@@ -14,6 +15,7 @@ export default class KnockedForm extends Component {
     };
 
     this.updateState = this.updateState.bind(this);
+    this.updateCheckedOptions = this.updateCheckedOptions.bind(this);
     this.transmit = this.transmit.bind(this);
   }
 
@@ -21,9 +23,23 @@ export default class KnockedForm extends Component {
     this.setState({
       knocked: {
         ...this.state.knocked,
-        [event.target.name]: event.target.value ,
+        [event.target.name]: event.target.value,
       },
     });
+  }
+
+  updateCheckedOptions(event) {
+    const add = (list, value) => (list || []).concat(value);
+    const remove = (list, value) => list.filter(option => option !== value);
+
+    this.setState({
+      knocked: {
+        ...this.state.knocked,
+        [event.target.name]: event.target.checked
+          ? add(this.state.knocked[event.target.name], event.target.value)
+          : remove(this.state.knocked[event.target.name], event.target.value)
+      }
+    })
   }
 
   transmit(event) {
@@ -87,6 +103,33 @@ export default class KnockedForm extends Component {
             	'Undecided',
             	'Weak oppose',
             	'Strong oppose',
+            ]}
+          />
+          <Checkboxes
+            name='issues'
+            checkedOptions={this.state.knocked.issues || []}
+            changeHandler={this.updateCheckedOptions}
+            label='What issues did they care about?'
+            options={[
+              'Jobs',
+              'Cost of living',
+              'Economy',
+              'Education ',
+              'Health',
+	            'Climate change',
+              'Environment',
+              'Refugees',
+              'Other',
+            ]}
+          />
+          <RadioButtons
+            name='followupRequired'
+            value={this.state.knocked.interaction}
+            changeHandler={this.updateState}
+            label='Should we have a followup conversation?'
+            options={[
+              'Yeah',
+              'Nope',
             ]}
           />
           <label>
