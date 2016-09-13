@@ -1,10 +1,10 @@
 import UUID from 'uuid';
 
-export default function transmit(type, body, responseHandler) {
+export default function transmit(auth, type, body, responseHandler) {
   const options = {
     method: 'POST',
     headers: {
-      'Authorization': `Basic ${btoa('knocker:changeit')}`,
+      'Authorization': `Basic ${btoa(`${auth.user}:${auth.password}`)}`,
       'Content-Type': 'application/json',
       'ES-EventType': type,
       'ES-EventId': UUID.v4(),

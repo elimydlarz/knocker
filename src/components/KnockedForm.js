@@ -12,16 +12,21 @@ export default class KnockedForm extends Component {
     this.state = {
       message: 'Welcome to Knocker!',
       knocked: {},
+      password: '',
     };
 
+    this.setPassword = this.setPassword.bind(this);
     this.updateField = this.updateField.bind(this);
     this.updateCheckedOptions = this.updateCheckedOptions.bind(this);
     this.handleSubmitSuccess = this.handleSubmitSuccess.bind(this);
     this.handleSubmitFailure = this.handleSubmitFailure.bind(this);
   }
 
+  setPassword(event) {
+    this.setState({ password: event.target.value });
+  }
+
   updateField(event) {
-    console.log(event.target);
     this.setState({
       knocked: {
         ...this.state.knocked,
@@ -57,7 +62,7 @@ export default class KnockedForm extends Component {
 
   render() {
     return (
-      <div className="KnockedForm">
+      <div className='KnockedForm'>
         <FlashMessage
           message={this.state.message} />
         <form>
@@ -66,6 +71,12 @@ export default class KnockedForm extends Component {
             label='Who knocked?'
             value={this.state.knocked.knocker || ''}
             changeHandler={this.updateField} />
+          <label>
+            {"What's the password?"}
+            <input type='password' name='password'
+              value={this.state.password}
+              onChange={this.setPassword} />
+          </label>
           <TextInput
             name='knockeeAddress'
             label='Where did you knock?'
@@ -135,11 +146,12 @@ export default class KnockedForm extends Component {
           />
           <label>
             Anything else?
-            <textarea name="notes"
+            <textarea name='notes'
               value={this.state.knocked.notes || ''}
               onChange={this.updateField} />
           </label>
           <Submit
+            password={this.state.password}
             data={this.state.knocked}
             requiredFields={[
               this.state.knocked.knocker,
