@@ -1,3 +1,5 @@
+jest.mock('../services/Window');
+
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Submit from './Submit';

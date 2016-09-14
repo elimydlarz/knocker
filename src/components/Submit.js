@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../css/Submit.css';
-import transmit from '../services/transmit.js';
+import EventStore from '../services/EventStore.js';
 
 export default class TextInput extends Component {
   constructor(props) {
@@ -16,7 +16,7 @@ export default class TextInput extends Component {
       password: this.props.password
     }
 
-    transmit(auth, this.props.eventType, this.props.data, response => {
+    EventStore.transmit(auth, this.props.eventType, this.props.data, response => {
       const responseHandler = response.status === 201
         ? this.props.successFn
         : this.props.failureFn;
