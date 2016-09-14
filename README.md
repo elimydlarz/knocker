@@ -17,11 +17,7 @@ Knocker loves EventStore like a fat kid loves cake. Get the official Docker imag
 docker pull eventstore/eventstore
 docker run --name eventstore-node -it -p 2113:2113 -p 1113:1113 eventstore/eventstore
 ```
-Then run some scripts to create a user for Knocker and set the appropriate permissions for the forthcoming Knocker stream -
-```
-./event-store-config/:number_:effect
-```
-It's worth understanding how these scripts work a bit and thinking about alternatives, because this is not a sustainable solution.
+Then create a user for Knocker and set the appropriate permissions for the forthcoming knocker stream.
 
 ## Create-React-App
 

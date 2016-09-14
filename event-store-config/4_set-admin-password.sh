@@ -1,1 +1,0 @@
-curl -X POST -H "Authorization: Basic YWRtaW46Y2hhbmdlaXQ=" -H "Content-Type: application/json" -H "Cache-Control: no-cache" -H "Postman-Token: b2788bfb-f8f3-90ec-11e5-7645b492a345" -d '{ "newPassword": "scandinavianfarmbonanza" }' "http://127.0.0.1:2113/users/admin/command/reset-password"
