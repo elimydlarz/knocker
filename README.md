@@ -8,7 +8,7 @@ Business in the front. Deployed to Heroku via GitHub connection.
 
 ### Back
 
-Party in the back. Deployed to ECS using their goofy wizard thing, then configured via Postman.
+Party in the back. Deployed to ECS using their goofy wizard thing.
 
 ## EventStore
 
